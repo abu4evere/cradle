@@ -2,6 +2,7 @@ name: llm-test
 
 # Cradle's first cloud test: a free open model (via Ollama) on a GitHub cloud machine gives two AI people an English
 # conversation; the timings say how much life a cloud run can hold. Nothing runs on the creator's PC.
+# Run: gh workflow run llm-test.yml -R abu4evere/cradle -f model=qwen2.5:3b -f turns=12
 
 on:
   workflow_dispatch:
