@@ -1,0 +1,93 @@
+{
+ "model": "qwen2.5:3b",
+ "turns": 12,
+ "tokens": 131,
+ "tokens_per_second": 18.82,
+ "seconds_per_turn": 1.66,
+ "stats": [
+  {
+   "turn": 0,
+   "speaker": "Mira",
+   "tokens": 14,
+   "gen_seconds": 0.75,
+   "wall_seconds": 5.54
+  },
+  {
+   "turn": 1,
+   "speaker": "Tomas",
+   "tokens": 8,
+   "gen_seconds": 0.4,
+   "wall_seconds": 2.94
+  },
+  {
+   "turn": 2,
+   "speaker": "Mira",
+   "tokens": 17,
+   "gen_seconds": 0.92,
+   "wall_seconds": 1.76
+  },
+  {
+   "turn": 3,
+   "speaker": "Tomas",
+   "tokens": 17,
+   "gen_seconds": 0.92,
+   "wall_seconds": 1.71
+  },
+  {
+   "turn": 4,
+   "speaker": "Mira",
+   "tokens": 11,
+   "gen_seconds": 0.59,
+   "wall_seconds": 1.25
+  },
+  {
+   "turn": 5,
+   "speaker": "Tomas",
+   "tokens": 9,
+   "gen_seconds": 0.46,
+   "wall_seconds": 0.97
+  },
+  {
+   "turn": 6,
+   "speaker": "Mira",
+   "tokens": 7,
+   "gen_seconds": 0.35,
+   "wall_seconds": 0.82
+  },
+  {
+   "turn": 7,
+   "speaker": "Tomas",
+   "tokens": 11,
+   "gen_seconds": 0.58,
+   "wall_seconds": 0.97
+  },
+  {
+   "turn": 8,
+   "speaker": "Mira",
+   "tokens": 9,
+   "gen_seconds": 0.49,
+   "wall_seconds": 1.0
+  },
+  {
+   "turn": 9,
+   "speaker": "Tomas",
+   "tokens": 9,
+   "gen_seconds": 0.48,
+   "wall_seconds": 0.96
+  },
+  {
+   "turn": 10,
+   "speaker": "Mira",
+   "tokens": 9,
+   "gen_seconds": 0.48,
+   "wall_seconds": 0.96
+  },
+  {
+   "turn": 11,
+   "speaker": "Tomas",
+   "tokens": 10,
+   "gen_seconds": 0.54,
+   "wall_seconds": 1.02
+  }
+ ]
+}
