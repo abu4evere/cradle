@@ -1,0 +1,40 @@
+name: llm-test
+
+# Cradle's first cloud test: a free open model (via Ollama) on a GitHub cloud machine gives two AI people an English
+# conversation; the timings say how much life a cloud run can hold. Nothing runs on the creator's PC.
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Ollama model name"
+        default: "qwen2.5:3b"
+      turns:
+        description: "conversation turns"
+        default: "12"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Machine
+        run: nproc && free -g
+      - name: Install Ollama
+        run: curl -fsSL https://ollama.com/install.sh | sh
+      - name: Start the server and pull the model
+        run: |
+          (ollama serve > ollama.log 2>&1 &)
+          sleep 5
+          ollama pull "${{ inputs.model }}"
+      - name: Two AI parents talk
+        run: python tools/llm_test.py "${{ inputs.model }}" out "${{ inputs.turns }}"
+      - name: Put the conversation on the run page
+        if: always()
+        run: cat out/llm_test.md >> "$GITHUB_STEP_SUMMARY" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: llm-test
+          path: out/
