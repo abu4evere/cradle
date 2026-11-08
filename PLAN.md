@@ -91,3 +91,26 @@ What it means for the design:
 4. **A question for later:** if our agent becomes capable, would it ever notice that the people around it repeat
    patterns, the way someone inside a simulation might notice a "glitch"? That ties Cradle to the creator's "bug = law"
    reflection.
+
+## The Director: in Cradle, the history is written by the assistant (the creator, 8 November 2026)
+"inside cradle their history will be written by you. I mean you gonna control the game. Everything happening around
+that agent just to put more random situations".
+
+**This is the opposite of ACL**, where nobody writes the history. In Cradle the assistant is the game's director, the
+world's storyteller, in two layers:
+1. **A director program:** a library of situations written by the assistant, run with randomness and pacing.
+   - **Small daily surprises:** a toy is lost, it rains on the way to school, a neighbour visits, food runs out, a dog
+     in the park.
+   - **Big life events:** a sibling is born, a grandparent falls ill and dies, the family moves, a friend moves away, a
+     festival, a fire, a teacher leaves, a new child joins the class, the first job.
+
+   Pacing: quiet stretches and eventful ones (as storytellers in games do), so life is varied and never a loop. Varied
+   situations are also what learners need (Baker et al. 2019: "robust as long as we randomize the environment").
+2. **Chapters:** between runs, the assistant reads what happened to the agent and writes the next chapter's events.
+   The history is then truly written, chapter by chapter, around the life the agent is actually living.
+
+**Kept honest:**
+- every event the Director writes goes into a **chronicle**, so what the Director did and what the agent did can always
+  be told apart;
+- events touch the agent's world (family, school, friends, city) naturally, and NPCs react as people would;
+- the Neo principle holds: nothing tells the agent that a story is being written.
