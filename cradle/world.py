@@ -62,6 +62,9 @@ class City:
         self.next_id = 1
         self.log: list = []                 # (hour, speaker id, listener id, words) - what was said, for watching
         self.homes = [(4 + (k % 6) * 6, 2 + (k // 6) * 8) for k in range(families + 8)]
+        self.minds = None                   # minds.Minds: model-driven speech for the people near the focus
+        self.focus: set = set()             # the people whose lives get full minds (the agent's family, later)
+        self.director = None                # director.Director: the ghost (or its autopilot)
         self._found(families)
 
     # --- people ---------------------------------------------------------------------------------------------------
@@ -106,6 +109,8 @@ class City:
             self._live(p, h, day)
         if h == 0:
             self._daily()
+            if self.director is not None:
+                self.director.day(self)
         self.hour += 1
 
     def _live(self, p: NPC, h: int, day: int) -> None:
@@ -152,6 +157,11 @@ class City:
         if not near:
             return
         q = self.rng.choice(near)
+        if self.minds is not None and (p.id in self.focus or q.id in self.focus):
+            text = self.minds.speak(self, p, q, act)       # a full mind: English written by the model
+            if text:
+                self.log.append((self.hour, p.id, q.id, text))
+                return
         said = words.say(self.rng, p, q, act, self)
         if said:
             self.log.append((self.hour, p.id, q.id, said))
@@ -181,6 +191,19 @@ class City:
                 p.role, p.work = "retired", None
         self._pair()
         self._births()
+        if self.focus:                      # a focus family's newborns join the focus
+            for i in list(self.focus):
+                q = self.people.get(i)
+                if q is not None:
+                    self.focus.update(c for c in q.children if c in self.people and self.people[c].alive)
+
+    def pick_focus(self) -> None:
+        """For milestone 1's tests: the youngest founding couple and their children get full minds."""
+        mums = sorted((p for p in self.living() if p.sex == "F" and p.partner and p.age(self.hour) < 36),
+                      key=lambda p: (-p.born, p.id))
+        if mums:
+            m = mums[0]
+            self.focus = {m.id, m.partner} | {c for c in m.children if self.people[c].alive}
 
     def _death_risk(self, age: float) -> float:
         if age < 1:
@@ -234,3 +257,43 @@ def run(years: int = 30, seed: int = 1) -> None:
             c.step()
         if (y + 1) % 5 == 0:
             print(json.dumps(c.census()), flush=True)
+
+
+# --- save and resume (a long life spans many cloud jobs) ---------------------------------------------------------------
+def save(city: City, path) -> None:
+    from dataclasses import asdict
+    d = {"hour": city.hour, "next_id": city.next_id, "homes": city.homes, "rng": repr(city.rng.getstate()),
+         "people": [asdict(p) for p in city.people.values()], "focus": sorted(city.focus),
+         "log_tail": city.log[-2000:],
+         "minds": city.minds.to_dict() if city.minds is not None else None,
+         "director": city.director.to_dict() if city.director is not None else None}
+    with open(path, "w", encoding="utf-8") as fh:
+        json.dump(d, fh)
+
+
+def load(path, model=None) -> City:
+    import ast
+    with open(path, encoding="utf-8") as fh:
+        d = json.load(fh)
+    c = City.__new__(City)
+    c.rng = random.Random()
+    c.rng.setstate(ast.literal_eval(d["rng"]))
+    c.hour, c.next_id = d["hour"], d["next_id"]
+    c.homes = [tuple(h) for h in d["homes"]]
+    c.people = {}
+    for pd in d["people"]:
+        pd["home"], pd["loc"] = tuple(pd["home"]), tuple(pd["loc"])
+        pd["friends"] = {int(k): v for k, v in pd["friends"].items()}     # JSON keys come back as text
+        c.people[pd["id"]] = NPC(**pd)
+    c.focus = set(d["focus"])
+    c.log = [tuple(x) for x in d["log_tail"]]
+    c.minds = None
+    if d["minds"] is not None:
+        from .minds import Minds
+        c.minds = Minds(model, d["minds"]["calls_per_day"])
+        c.minds.load(d["minds"])
+    c.director = None
+    if d["director"] is not None:
+        from .director import Director
+        c.director = Director.from_dict(d["director"])
+    return c
