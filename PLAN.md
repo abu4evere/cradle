@@ -114,3 +114,18 @@ world's storyteller, in two layers:
   be told apart;
 - events touch the agent's world (family, school, friends, city) naturally, and NPCs react as people would;
 - the Neo principle holds: nothing tells the agent that a story is being written.
+
+### The Director as a ghost (the creator, 8 November 2026)
+"their history isnt written before game but it means you also live inside that game as ghost and control everything
+what is going to happen in that world".
+
+So nothing is written in advance. **The assistant lives in the world as an unseen ghost and decides as it goes:**
+- **The world pauses at the ghost's moments.** The routine hours run by themselves. At set moments the world stops,
+  shows the ghost the present state (who is where, how the child is, what just happened), and the ghost decides what
+  happens next. Then the world runs on.
+  - The moments: every month of world time, and at once when something notable happens (an illness, a first word, a
+    fight, a birth).
+- **When the assistant is not in a session,** the director program plays the ghost on autopilot, from the ghost's own
+  library and rules. The ghost reviews those stretches later and records them in the chronicle as autopilot.
+- **The chronicle records every decision of the ghost,** live or autopilot, so the child's own doing can always be
+  told apart from the ghost's.
