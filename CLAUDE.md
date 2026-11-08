@@ -49,7 +49,7 @@ Read `PLAN.md` (the design, in the creator's own words), then the log at the end
 - **The first cloud test is ready but not yet run:**
   - `.github/workflows/llm-test.yml` installs Ollama on an ubuntu runner and pulls the model;
   - `tools/llm_test.py` has two AI parents (Mira and Tomas) talk in English about their 3-week-old baby, and times it.
-- **Blocked:** the repository is local only. Creating the **public** GitHub repo was blocked by the app's safety check.
+- **Resolved 17:09:** the creator created the public repo (github.com/abu4evere/cradle). Earlier: the repository was local only. Creating the **public** GitHub repo was blocked by the app's safety check.
   **The creator must run it themselves:**
   `gh repo create abu4evere/cradle --public --source=D:/cradle --remote=origin --push` (gh at `C:\Users\User\gh\bin\gh.exe`).
   Then: `gh workflow run llm-test.yml -R abu4evere/cradle -f model=qwen2.5:3b -f turns=12`. Read the run page or the
@@ -96,3 +96,4 @@ Read `PLAN.md` (the design, in the creator's own words), then the log at the end
   - `run.py`: options --model mock|ollama:<name>, --live, --save, --load, --apply EVENT and --note.
   - Until the agent exists, the focus is the youngest founding couple and their children. Their newborns join it.
   - **Next:** once the creator has created the repo, run llm-test, then set the call budget from the measured speed.
+- 2026-11-08 17:13: the creator created github.com/abu4evere/cradle (public) and pushed. Next: the llm-test on the cloud.
