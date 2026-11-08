@@ -75,3 +75,19 @@ Each milestone ends with a written result. The tests are planned before they are
 - No money is spent without the creator.
 - Plans are written before tests.
 - ACL is untouched.
+
+## The Neo principle (the creator, 8 November 2026)
+"its like creating matrix think about that way. Our agent is Neo inside matrix he does not know about reality and
+matrix. Hes reality is matrix and all other people are ai nps and he cannot distinguish".
+
+What it means for the design:
+1. **Our agent is one child among many.** Its parents raise it exactly as NPC parents raise NPC children: the same
+   routines, the same words, the same care. No NPC has any behaviour made only for it. If the world treated it
+   differently, it would not be living inside the culture; it would be visiting it.
+2. **It knows only what it senses.** It gets no special access, no map, no labels, no outside knowledge. It sees, hears
+   and feels what an NPC child in its place would.
+3. **It cannot tell NPCs from itself, and nothing tells it.** The world must also be believable: NPCs need enough
+   variety that their lives do not look like loops.
+4. **A question for later:** if our agent becomes capable, would it ever notice that the people around it repeat
+   patterns, the way someone inside a simulation might notice a "glitch"? That ties Cradle to the creator's "bug = law"
+   reflection.
