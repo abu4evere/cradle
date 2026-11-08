@@ -85,3 +85,14 @@ Read `PLAN.md` (the design, in the creator's own words), then the log at the end
 ## Log
 - 2026-11-08 16:15: project started. `PLAN.md`; city v0; the Neo principle; the Director (a live ghost); cloud-only
   model; the llm-test is ready; the public repo is waiting for the creator; the introduction for GPT is written.
+- 2026-11-08 16:34: built and tested with a stand-in model (no AI model; nothing on the PC):
+  - `cradle/minds.py`: Generative-Agents-style minds for the focus people (persona, memory stream with recall, speech by the model, a daily call budget, default 8); `OllamaModel` for the cloud, `MockModel` for tests.
+  - `cradle/director.py`: the ghost.
+    - Pause points monthly and on notable events (births and illnesses near the focus, each noticed once).
+    - Live mode writes `pause.json` and stops.
+    - Autopilot picks from a library (sick, visit, festival, storm, job change, friend moves, lost toy), with pacing.
+    - A chronicle records who decided what.
+  - `world.save` and `world.load`: a long life spans many cloud jobs.
+  - `run.py`: options --model mock|ollama:<name>, --live, --save, --load, --apply EVENT and --note.
+  - Until the agent exists, the focus is the youngest founding couple and their children. Their newborns join it.
+  - **Next:** once the creator has created the repo, run llm-test, then set the call budget from the measured speed.
