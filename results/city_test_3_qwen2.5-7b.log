@@ -1,0 +1,44 @@
+done: year 0.01, 730s, model calls 62, chronicle 1
+  {'hour': 0, 'by': 'autopilot', 'event': 'visit', 'text': 'Lolo, a neighbour, drops by the house and stays for tea.'}
+--- the last English lines ---
+day 1, 10:00  Mine (worker, 32) to Yadi (2): Good morning, Yadi. You're such a little sunshine today.
+day 1, 11:00  Nezera (worker, 28) to Nezene (39): Hi Nezene, it's been a while. How are you and Zeka doing?
+day 1, 11:00  Mika (student, 8) to Kasu (8): Hey Kasu, check out those big clouds in the sky! Maybe we can have a picnic at lunchtime if it stays dry.
+day 1, 11:00  Toraka (worker, 35) to Mine (32): Good morning, Mine. How's everything going?
+day 1, 12:00  Nezera (worker, 28) to Neya (41): Hi Neya, nice to see you. How are you and the kids?
+day 1, 13:00  Nezera (worker, 28) to Lolo (31): Hi Lolo, how's it going? You look like you've been busy.
+day 1, 13:00  Mine (worker, 32) to Neya (41): Good morning, Neya. How are you doing today?
+day 1, 15:00  Nezera (worker, 28) to Neya (41): How are you and the kids?
+day 1, 18:00  Sumimi (student, 6) to Mika (8): Yaneka so funny, laughing like that. Want some bread, Mika?
+day 1, 18:00  Loyalo (worker, 38) to Mika (8): Hi Mika, wanna get some ice cream after we shop?
+day 1, 20:00  Mika (student, 8) to Nezera (28): Mom, can we have cookies instead of bread? And can we go get that ice cream later?
+day 1, 21:00  Mika (student, 8) to Mine (32): Hey Dad, can we watch a movie after we shop for ice cream?
+day 2, 06:00  Loya (worker, 41) to Mine (32): Kayami is such a cuddly little one, isn't she? How's your family?
+day 2, 07:00  Mine (worker, 32) to Mika (8): Sure, Mika. Let's get some ice cream first and then pick a movie.
+day 2, 09:00  Nezera (worker, 28) to Neya (41): How's everything going, Neya? Hope you're well.
+day 2, 10:00  Mine (worker, 32) to Yadi (2): Hey Yadi, look at that pretty flower! Do you want to pick some pretty colors?
+day 2, 10:00  Mika (student, 8) to Poba (7): Poba, look! That butterfly is so pretty, wanna chase it?
+day 2, 11:00  Zepopo (student, 8) to Mika (8): Hi Mika, got any plans for when it's warm outside? Thinking 'bout maybe going to the park sometime.
+day 2, 13:00  Nezera (worker, 28) to Lolo (31): How's everything with you, Lolo? Hope you're doing well.
+day 2, 13:00  Mika (student, 8) to Suka (30): Hey Suka, wanna chase that butterfly? It's so colorful!
+day 2, 16:00  Toraka (worker, 35) to Mine (32): Good to see you, Mine. Got any good stories today?
+day 2, 18:00  Mika (student, 8) to Poba (7): Poba, come on! Look at that butterfly, it's so pretty and fluttery!
+day 2, 19:00  Mine (worker, 32) to Nezera (28): Hey Nezera, how was your day?
+day 2, 20:00  Mine (worker, 32) to Nezera (28): It was nice, Nezera. How about you?
+day 3, 08:00  Mika (student, 8) to Sudisu (9): Hey Sudisu, check this out! Look at the big butterfly flying by! Want to catch it? It's so bright and beautiful!
+day 3, 09:00  Mika (student, 8) to Diloya (9): Hey Diloya, check out that butterfly! It's flying so high!
+day 3, 10:00  Yaka (teacher, 36) to Mika (8): That's a nice leaf, Mika. Want to show it to the class?
+day 3, 12:00  Nezene (worker, 39) to Mine (32): Hey Mine, nice to see you. Zeka's keeping me busy, but good. How about you?
+day 3, 12:00  Mine (worker, 32) to Lolo (31): Hey Lolo, nice to see you. How's everything going?
+day 3, 13:00  Lolo (worker, 31) to Mine (32): Hey Mine, nice to see you too. Everything's okay, just busy as usual. How about you?
+day 3, 13:00  Mika (student, 8) to Yaka (36): Sure, Yaka! Come on, let's show it to everyone!
+day 3, 16:00  Kaze (worker, 37) to Mine (32): Hey Mine, how's everything going?
+day 3, 17:00  Mine (worker, 32) to Poba (7): Poba, look at this pretty flower. Want to pick one?
+day 3, 17:00  Mika (student, 8) to Sudisu (9): Look over there, Sudisu! Isn't that butterfly awesome? It's like it's dancing in the sun!
+day 3, 17:00  Bapo (worker, 38) to Mine (32): Hello Mine, how's everything going?
+day 3, 18:00  Mika (student, 8) to Toraka (35): Hey Toraka, look at that pretty flower! Isn't it colorful?
+day 3, 19:00  Mika (student, 8) to Mine (32): Hey Dad, check this out! I caught a little bug in the garden! Isn't it cute?
+day 3, 20:00  Mine (worker, 32) to Suyasu (6): Hey Suyasu, look at that pretty flower. Want to have a closer look?
+day 3, 21:00  Nezera (worker, 28) to Mika (8): Hey Mika, how's your day been?
+day 3, 21:00  Mika (student, 8) to Nezera (28): Hey Dad, it was fun! We played lots of games at school today.
+model: 62 calls, 1017 tokens, 11.77 s per call

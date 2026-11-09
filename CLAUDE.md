@@ -104,3 +104,8 @@ Read `PLAN.md` (the design, in the creator's own words), then the log at the end
   - Test 2 (run 42544840061): more variety (roof, recipes, drawing, rain, stories), but the 3B model reads the scene description aloud, repeats its one concern (the roof) constantly, and mixes up names and roles; 7.6 s per call.
   - Logs in `results/`.
   - **Next options:** prompts that never echo the scene and give the concern only sometimes; a larger free model (qwen2.5:7b, slower); or a free API tier (the creator must make the key).
+- 2026-11-08 20:49: city test 3 (4 world days; the scene as unspoken background, the concern sometimes, a clear speaker and listener):
+  - **3B** (run 42546410924), 6.1 s per call: no echoing of the scene, but a repetitive 'how was your day' and some wrong names.
+  - **7B** (run 42546418239), 11.8 s per call: the most natural speech (a child shows a butterfly or a leaf; the teacher: 'Want to show it to the class?'), fewer errors; it still mixes up Mom and Dad.
+  - **Budget per 6-hour job:** about 3,500 calls (3B) or 1,800 (7B), so a full city childhood is slow.
+  - **Direction:** the C0 household first; a free API tier could give better and faster people (the creator's key).

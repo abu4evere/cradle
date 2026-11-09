@@ -1,0 +1,44 @@
+done: year 0.01, 342s, model calls 56, chronicle 1
+  {'hour': 0, 'by': 'autopilot', 'event': 'visit', 'text': 'Lolo, a neighbour, drops by the house and stays for tea.'}
+--- the last English lines ---
+day 0, 19:00  Mine (worker, 32) to Nezera (28): Hey Nez, how's work? Need anything?
+day 0, 20:00  Nezera (worker, 28) to Nezene (39): Hey Kasu, how are things at home? Zeka laughing again today?
+day 0, 21:00  Mine (worker, 32) to Nezera (28): Let's both rest now, okay?
+day 1, 06:00  Mika (student, 8) to Nezera (28): Hey Mom, there's a yummy smell of fresh bread!
+day 1, 07:00  Nezera (worker, 28) to Mine (32): Hey Kasu, how are things at home? Zeka laughing again today?
+day 1, 07:00  Mine (worker, 32) to Mika (8): Hey Mika, time for breakfast. What did you do today?
+day 1, 10:00  Nemi (student, 15) to Mika (8): Yeah, I got it all ready. You want me to grab some milk and cereal for you?
+day 1, 13:00  Nemi (student, 15) to Mika (8): Sure thing, Mika! I'll grab the milk and cereal for you.
+day 1, 13:00  Nezene (worker, 39) to Nezera (28): Hey Kaze, everything's okay at home. Zeka was laughing earlier. How's work treating you?
+day 1, 15:00  Nezera (worker, 28) to Neya (41): Hey Kaze, how are things going? Zeka laughing again today?
+day 1, 19:00  Mika (student, 8) to Nezera (28): Hey Mom, it looks like rain today. What did you do today?
+day 1, 20:00  Mika (student, 8) to Nezera (28): I'm good, Mom. Just thinking about work a bit. How was your day?
+day 1, 21:00  Nezera (worker, 28) to Mika (8): Hey Mika, how was your day at school?
+day 2, 07:00  Mine (worker, 32) to Mika (8): Let's get you ready for breakfast, Mika. What fun things did you do today?
+day 2, 09:00  Toraka (worker, 35) to Mine (32): I'm here, Mine. How are you this morning?
+day 2, 10:00  Kasu (student, 8) to Mika (8): Hey Mika, how was your day so far?
+day 2, 10:00  Sudi (worker, 43) to Nezera (28): Hey there, how’s work treating you today?
+day 2, 10:00  Mine (worker, 32) to Yadi (2): Hey Yadi, let's get you ready for your bottle. Come on, sleepy head.
+day 2, 10:00  Mika (student, 8) to Poba (7): Hey Poba! How was your day at school? Did you play any fun games?
+day 2, 11:00  Zepopo (student, 8) to Mika (8): Hey Mika, how was your day at school? I've been thinking about the birthday party coming up, what have you been thinking about?
+day 2, 13:00  Nezera (worker, 28) to Lolo (31): Hey Lolo, how was your day at the office? Just smelling some fresh bread, reminds me of home.
+day 2, 13:00  Mika (student, 8) to Suka (30): Hey Suka, how's your morning been? Heard anything interesting at work today?
+day 2, 16:00  Toraka (worker, 35) to Mine (32): How’s everything going, Mine?
+day 2, 18:00  Mika (student, 8) to Poba (7): Hey Poba, how was your day at school today? Any fun stories?
+day 2, 19:00  Mika (student, 8) to Mine (32): Hey Mine, how was your day at work? Heard any good jokes today?
+day 2, 21:00  Mika (student, 8) to Mine (32): Hey Poba, how was your day at school today? Any fun stories?
+day 3, 08:00  Toraka (worker, 35) to Mine (32): How are you this morning, Mine? Hope everything is okay.
+day 3, 09:00  Lolo (worker, 31) to Mine (32): Hey Mine, how are things at home? Zepopo and Sudisu been good?
+day 3, 10:00  Sudisu (student, 9) to Mika (8): Hello Mika! How was your morning at school?
+day 3, 10:00  Nezera (worker, 28) to Toraka (35): Hey Toraka, how was your day at work?
+day 3, 10:00  Mine (worker, 32) to Kaze (37): Hey Kaze, how’s everything going with you?
+day 3, 11:00  Toraka (worker, 35) to Mine (32): How are you today, Mine? Everything okay?
+day 3, 13:00  Mine (worker, 32) to Kasu (38): Hey Kasu, how’s everything with you? Everything okay at home?
+day 3, 15:00  Nezera (worker, 28) to Neya (41): Hey Lolo, how’s work treating you today? Just smelling some fresh bread, reminds me of home.
+day 3, 17:00  Nezera (worker, 28) to Nene (29): Hey Neya, how was your day at work? Just smelling some fresh bread, reminds me of home.
+day 3, 17:00  Neya (worker, 41) to Mika (8): Hey Mika, look at those pretty flowers. Do you remember how we used to pick flowers when you were little?
+day 3, 19:00  Mika (student, 8) to Nezera (28): Hey Mom, do you remember when we used to pick flowers together? Those were the best days!
+day 3, 20:00  Mine (worker, 32) to Nene (29): Hey Nene, everything okay with you? How’s work been?
+day 3, 20:00  Mika (student, 8) to Kasu (8): Hey Kasu! Remember when we built that big sandcastle? It was so tall and awesome!
+day 3, 21:00  Mika (student, 8) to Mine (32): Hey Mine, how was your day at work? Remember that sandcastle we built? It was so much fun!
+model: 56 calls, 945 tokens, 6.11 s per call
