@@ -145,16 +145,18 @@ class Minds:
         if p.age(city.hour) < 4:
             return None                                    # babies and toddlers babble in the city's simple words
         mp = self.mind(city, p)
-        scene = (f"It is {time_words(city.hour % 24)}. You are at {where(city, p)} ({act}). With you is {q.name}, "
-                 f"{age_words(q.age(city.hour))}" + (", your child" if q.id in p.children else "")
-                 + (", your partner" if q.id == p.partner else "") + f". {moment(city, p, q)} "
-                 f"On your mind lately: {concern_of(p)}.")
-        mem = mp.recall(city.hour)
-        system = (mp.persona + " " + SPEAK + " Do not repeat what was just said; move the moment on."
-                  + (" Things on your mind: " + " | ".join(mem) if mem else ""))
+        rel = ("your child" if q.id in p.children else "your partner" if q.id == p.partner
+               else "your mother" if q.id == p.mother else "your father" if q.id == p.father else "someone you know")
+        background = (f"Background, for you only (never say it aloud): it is {time_words(city.hour % 24)}; you are at "
+                      f"{where(city, p)} ({act}); {moment(city, p, q)}"
+                      + (f" Lately you have been thinking about {concern_of(p)}." if city.rng.random() < 0.25 else ""))
+        mem = mp.recall(city.hour, k=3)
+        system = (mp.persona + " " + SPEAK + f" You are {p.name}, speaking to {q.name} ({age_words(q.age(city.hour))}, "
+                  f"{rel}). Never call yourself by name. Do not repeat what was just said; move the moment on. "
+                  + background + (" Recent memories: " + " | ".join(mem) if mem else ""))
         recent = [x for x in city.log[-40:] if {x[1], x[2]} == {p.id, q.id} and isinstance(x[3], str)][-4:]
         msgs = [{"role": "assistant" if x[1] == p.id else "user", "content": x[3]} for x in recent]
-        text = self.model.chat(system, msgs + [{"role": "user", "content": scene}])
+        text = self.model.chat(system, msgs + [{"role": "user", "content": f"({q.name} is with you. What do you say?)"}])
         self.spent_today += 1
         text = _clean(text, p.name)
         if not text:
