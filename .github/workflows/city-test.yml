@@ -1,0 +1,48 @@
+name: city-test
+
+# Cradle's city with real AI minds for the focus family: a free open model (via Ollama) on a GitHub cloud machine writes
+# their English speech, inside the scripted city. Prints the last English lines and the model's speed.
+# Run: gh workflow run city-test.yml -R abu4evere/cradle -f days=7 -f calls=30
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Ollama model name"
+        default: "qwen2.5:3b"
+      days:
+        description: "world days to run"
+        default: "7"
+      calls:
+        description: "model calls per world day"
+        default: "30"
+      seed:
+        description: "city seed"
+        default: "3"
+
+jobs:
+  city:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Ollama
+        run: curl -fsSL https://ollama.com/install.sh | sh
+      - name: Start the server and pull the model
+        run: |
+          (ollama serve > ollama.log 2>&1 &)
+          sleep 5
+          ollama pull "${{ inputs.model }}"
+      - name: The city lives
+        run: |
+          mkdir -p out
+          python run.py --years $(python -c "print(${{ inputs.days }}/360)") --seed "${{ inputs.seed }}" \
+            --model "ollama:${{ inputs.model }}" --calls-per-day "${{ inputs.calls }}" --save out/city.ckpt.json | tee out/city.log
+      - name: Put the speech on the run page
+        if: always()
+        run: (echo '```'; tail -n 50 out/city.log; echo '```') >> "$GITHUB_STEP_SUMMARY" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: city-test
+          path: out/

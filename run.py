@@ -58,3 +58,13 @@ print(f"done: year {c.hour / world.HOURS_PER_YEAR:.2f}, {time.time() - t0:.0f}s,
 if c.director is not None:
     for e in c.director.chronicle[-8:]:
         print(" ", e)
+
+if c.minds is not None:
+    lines = [x for x in c.log if isinstance(x[3], str)][-40:]
+    print("--- the last English lines ---")
+    for h, a_, b_, t in lines:
+        pa, pb = c.people[a_], c.people[b_]
+        print(f"day {h // 24}, {h % 24:02d}:00  {pa.name} ({pa.role}, {int(pa.age(h))}) to {pb.name} ({int(pb.age(h))}): {t}")
+    m = c.minds.model
+    if hasattr(m, "seconds") and m.calls:
+        print(f"model: {m.calls} calls, {m.tokens} tokens, {m.seconds / m.calls:.2f} s per call")

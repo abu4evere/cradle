@@ -144,11 +144,16 @@ class Minds:
                  f"{int(q.age(city.hour))} years old" + (", your child" if q.id in p.children else "")
                  + (", your partner" if q.id == p.partner else "") + ".")
         mem = mp.recall(city.hour)
-        system = mp.persona + " " + SPEAK + (" Things on your mind: " + " | ".join(mem) if mem else "")
-        text = self.model.chat(system, [{"role": "user", "content": scene}])
+        system = (mp.persona + " " + SPEAK + " Do not repeat what was just said; move the moment on."
+                  + (" Things on your mind: " + " | ".join(mem) if mem else ""))
+        recent = [x for x in city.log[-40:] if {x[1], x[2]} == {p.id, q.id} and isinstance(x[3], str)][-4:]
+        msgs = [{"role": "assistant" if x[1] == p.id else "user", "content": x[3]} for x in recent]
+        text = self.model.chat(system, msgs + [{"role": "user", "content": scene}])
         self.spent_today += 1
         if text.startswith(p.name + ":"):
             text = text.split(":", 1)[1].strip()
+        if _too_close(text, [x[3] for x in recent]):      # a loop: say nothing rather than repeat
+            return None
         mp.remember(city.hour, f"I said to {q.name}: {text}", 0.3)
         if q.id in self.by_pid or q.age(city.hour) >= 3:
             self.mind(city, q).remember(city.hour, f"{p.name} said to me: {text}", 0.3)
@@ -168,3 +173,13 @@ def where(city, p) -> str:
         if (x, y) == tuple(p.loc):
             return f"the {name}"
     return "home" if tuple(p.loc) == tuple(p.home) else "the street"
+
+
+def _too_close(text: str, previous: list) -> bool:
+    """True if `text` mostly repeats one of the previous lines (word overlap above 0.6)."""
+    w = set(text.lower().replace(",", " ").replace(".", " ").replace("!", " ").split())
+    for prev in previous:
+        v = set(prev.lower().replace(",", " ").replace(".", " ").replace("!", " ").split())
+        if w and v and len(w & v) / len(w | v) > 0.6:
+            return True
+    return False
