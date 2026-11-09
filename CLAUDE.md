@@ -98,3 +98,9 @@ Read `PLAN.md` (the design, in the creator's own words), then the log at the end
   - **Next:** once the creator has created the repo, run llm-test, then set the call budget from the measured speed.
 - 2026-11-08 17:13: the creator created github.com/abu4evere/cradle (public) and pushed. Next: the llm-test on the cloud.
 - 2026-11-08 17:23: first cloud test (run 42529889010, qwen2.5:3b, ubuntu runner with 4 CPUs and 15 GB of RAM): 18.8 tokens/s, 1.66 s per turn. Natural English, but the conversation drifted from the baby into a repetitive goodnight loop (small models are agreeable and repeat; the council warned of a thin culture). Fixes: world events fed in, memory of the day, a repetition limit, real concerns in the personas. Results in `results/`. Council 1 (GPT, Gemini, DeepSeek) in `docs/council_1_2026-11-08.md`. Recommended to the creator: GPT's C0 (one household, 10 grounded words, three brains, controls) as the first experiment. Awaiting their decision.
+- 2026-11-08 20:34: city tests with real AI minds (qwen2.5:3b, 7 world days, 30 calls a day):
+  - Test 1 (run 42543817574): everyone talked about the clock and meals, at wrong times; a one-year-old spoke; memory labels leaked.
+  - Fixes: time in words, a concern per person, a concrete moment, no AI speech under 4, labels cleaned.
+  - Test 2 (run 42544840061): more variety (roof, recipes, drawing, rain, stories), but the 3B model reads the scene description aloud, repeats its one concern (the roof) constantly, and mixes up names and roles; 7.6 s per call.
+  - Logs in `results/`.
+  - **Next options:** prompts that never echo the scene and give the concern only sometimes; a larger free model (qwen2.5:7b, slower); or a free API tier (the creator must make the key).

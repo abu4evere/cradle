@@ -1,0 +1,44 @@
+done: year 0.02, 508s, model calls 125, chronicle 1
+  {'hour': 0, 'by': 'autopilot', 'event': 'visit', 'text': 'Lolo, a neighbour, drops by the house and stays for tea.'}
+--- the last English lines ---
+day 4, 14:00  Suka (teacher, 30) to Mika (8): Oh, it's lunchtime now. Let's get you some food, Mika.
+day 4, 16:00  Mine (worker, 32) to Zeka (0): It looks like it's time for lunch break now, Zeka. Let's head out.
+day 4, 17:00  Zepodi (child, 1) to Mika (8): Oh, it's 17:00. Time to go home now, Mika. Let's hurry.
+day 4, 18:00  Mine (worker, 32) to Lolo (31): It looks like it's time for us to head home, Lolo. Let's grab something quick for dinner.
+day 4, 18:00  Mika (student, 8) to Zepopo (8): Oh no, it's already time to go home, Zepopo. Let's get some snacks before we go.
+day 4, 19:00  Mika (student, 8) to Mine (32): Oh no, it's already time to eat at home. Mine, let's grab a snack.
+day 4, 20:00  Mika (student, 8) to Mine (32): Oh, it's dinner time now. Let's get you something to eat, Mine.
+day 5, 06:00  Nezera (worker, 28) to Lolo (31): Oh, it's time for us to head home now, Lolo. Let's get your stroller ready, shall we?
+day 5, 06:00  Mine (worker, 32) to Mika (8): Let's grab a snack, Mika.
+day 5, 07:00  Nezera (worker, 28) to Mine (32): Oh, it looks like it's time for us to eat at home. Mine, let's enjoy our meal together.
+day 5, 08:00  Mine (worker, 32) to Sudi (43): It looks like it's time for us to head home, Sudi. Let's grab a snack.
+day 5, 11:00  Mine (worker, 32) to Mika (8): Let's grab a snack, Mika.
+day 5, 12:00  Mine (worker, 32) to Mika (8): It's 12:00 now. Let's eat at home, Mika.
+day 5, 13:00  Mine (worker, 32) to Mika (8): It is 13:00 now. Let's eat at home, Mika.
+day 5, 15:00  Nezera (worker, 28) to Zepopo (8): Zepopo, it's time to head home now. Let's get your stroller ready, shall we?
+day 5, 16:00  Mika (student, 8) to Nezera (28): Oh, it's time for our snack break, Nezera.
+day 5, 17:00  Mika (student, 8) to Nezera (28): Oh no, it's time to eat now.
+day 5, 18:00  Nezera (worker, 28) to Mika (8): It's snack time, Mika. Let's get your cup ready.
+day 5, 20:00  Mika (student, 8) to Nezera (28): Oh, it's time for our snack break, Nezera.
+day 6, 06:00  Mine (worker, 32) to Nezera (28): It's 6:00 now. Let's have our dinner, Nezera.
+day 6, 08:00  Nezera (worker, 28) to Mika (8): It's time for our snack break, Mika. Let's get your cup ready.
+day 6, 08:00  Mine (worker, 32) to Yazepo (33): It's time for us to go now, Yazepo. Let's head home.
+day 6, 08:00  Mika (student, 8) to Nezera (28): Oh, it's time to eat now.
+day 6, 10:00  Nezera (worker, 28) to Mine (32): Oh, dinner time, Mine. I'll make the plates ready.
+day 6, 10:00  Mine (worker, 32) to Mika (8): It's time for lunch, Mika. Let's eat at home.
+day 6, 11:00  Nezera (worker, 28) to Mine (32): Oh, it's bedtime now, Mine. Let's get ready for bed.
+day 6, 11:00  Mika (student, 8) to Nezera (28): Oh, it's snack time now. Let's get your cup ready, Nezera.
+day 6, 12:00  Nezera (worker, 28) to Mine (32): Oh, it's time for dinner, Mine. Let's get the plates ready.
+day 6, 14:00  Nemi (student, 14) to Mika (8): Mika said to me: Oh, dinner time is almost here. Let's try making a tasty pasta dish.
+day 6, 16:00  Diloya (student, 9) to Mika (8): Oh, it looks like it's time for dinner now. Mika, you're here too?
+day 6, 16:00  Mine (worker, 32) to Neya (32): Oh, it's time for us to head home now. Let's go.
+day 6, 17:00  Nezera (worker, 28) to Suyasu (6): Oh, dinner time soon, Suyasu. Let's find some shade for our picnic.
+day 6, 17:00  Mine (worker, 32) to Mika (8): It's time for lunch, Mika. Let's eat at home.
+day 6, 18:00  Nezera (worker, 28) to Mine (32): Oh, it's almost dinner time now. Let's get ready for dinner, Mine.
+day 6, 19:00  Mika (student, 8) to Mine (32): Oh, it looks like it's time for dinner now. Let's eat at home.
+day 6, 20:00  Mika (student, 8) to Nezera (28): Oh, it looks like it's time for dinner now, Nezera. Let's make a simple pasta dish.
+day 6, 21:00  Suyasu (student, 6) to Mine (32): Oh, dinner time is soon, Mine. Let's find some shade for our picnic.
+day 6, 21:00  Lolo (worker, 31) to Mine (32): Oh no, that means it's pretty late now. We'd better head home for dinner.
+day 6, 21:00  Mine (worker, 32) to Kaka (3): Oh, dinner time is soon, Kaka. Let's find some shade for our picnic.
+day 6, 21:00  Mika (student, 8) to Zeka (0): Oh, Zeka, it looks like it's time for dinner now. Let's go home and eat.
+model: 125 calls, 2583 tokens, 4.06 s per call
