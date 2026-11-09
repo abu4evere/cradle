@@ -18,6 +18,10 @@ import time
 import urllib.request
 from dataclasses import dataclass, field
 
+CONCERNS = ("the rent is due soon and money is tight", "a sore knee that will not heal", "a child's drawing that made you proud",
+            "a weekend trip you are planning", "a neighbour who has been unkind lately", "a new recipe you want to try",
+            "a friend who is ill", "trouble at work with a colleague", "the garden you are growing", "feeling lonely lately",
+            "a birthday coming up in the family", "the leaking roof", "a book you are enjoying", "worry about a parent's health")
 TEMPERAMENTS = ("warm and patient", "cheerful and talkative", "quiet and thoughtful", "practical and busy",
                 "anxious but caring", "playful and teasing", "strict but fair", "gentle and shy")
 
@@ -138,11 +142,13 @@ class Minds:
         """What p says to q now, written by the model from p's persona and memories; both remember it."""
         if not self.can_speak(city):
             return None
+        if p.age(city.hour) < 4:
+            return None                                    # babies and toddlers babble in the city's simple words
         mp = self.mind(city, p)
-        h = city.hour % 24
-        scene = (f"It is {h}:00. You are {act} at {where(city, p)}. With you is {q.name}, "
-                 f"{int(q.age(city.hour))} years old" + (", your child" if q.id in p.children else "")
-                 + (", your partner" if q.id == p.partner else "") + ".")
+        scene = (f"It is {time_words(city.hour % 24)}. You are at {where(city, p)} ({act}). With you is {q.name}, "
+                 f"{age_words(q.age(city.hour))}" + (", your child" if q.id in p.children else "")
+                 + (", your partner" if q.id == p.partner else "") + f". {moment(city, p, q)} "
+                 f"On your mind lately: {concern_of(p)}.")
         mem = mp.recall(city.hour)
         system = (mp.persona + " " + SPEAK + " Do not repeat what was just said; move the moment on."
                   + (" Things on your mind: " + " | ".join(mem) if mem else ""))
@@ -150,8 +156,9 @@ class Minds:
         msgs = [{"role": "assistant" if x[1] == p.id else "user", "content": x[3]} for x in recent]
         text = self.model.chat(system, msgs + [{"role": "user", "content": scene}])
         self.spent_today += 1
-        if text.startswith(p.name + ":"):
-            text = text.split(":", 1)[1].strip()
+        text = _clean(text, p.name)
+        if not text:
+            return None
         if _too_close(text, [x[3] for x in recent]):      # a loop: say nothing rather than repeat
             return None
         mp.remember(city.hour, f"I said to {q.name}: {text}", 0.3)
@@ -183,3 +190,37 @@ def _too_close(text: str, previous: list) -> bool:
         if w and v and len(w & v) / len(w | v) > 0.6:
             return True
     return False
+
+
+def _clean(text: str, name: str) -> str:
+    """Strip a speaker label or a leaked memory label ('X said to me:', 'I said to Y:') and surrounding quotes."""
+    import re
+    t = text.strip().strip('"')
+    t = re.sub(r"^(\w+ said to me:|I said to \w+:|" + re.escape(name) + r":)\s*", "", t)
+    return t.strip().strip('"')
+
+
+def time_words(h: int) -> str:
+    return ("early morning" if h < 8 else "morning" if h < 12 else "midday" if h < 14 else "afternoon" if h < 17
+            else "evening" if h < 21 else "night")
+
+
+def age_words(a: float) -> str:
+    return ("a baby" if a < 1 else "a toddler" if a < 4 else f"a {int(a)}-year-old child" if a < 13
+            else f"a teenager of {int(a)}" if a < 18 else f"{int(a)} years old")
+
+
+def concern_of(p) -> str:
+    """What has been on this person's mind lately (fixed for a season, then it changes)."""
+    return CONCERNS[(p.id * 3 + int(p.born // 1000)) % len(CONCERNS)]
+
+
+def moment(city, p, q) -> str:
+    """One concrete detail of the moment, from the world's state."""
+    babies = [x for x in city.living() if tuple(x.loc) == tuple(p.loc) and x.age(city.hour) < 2]
+    if babies and city.rng.random() < 0.5:
+        return f"{babies[0].name}, the baby, is {city.rng.choice(('crying', 'laughing', 'reaching for you', 'falling asleep'))}."
+    if p.sick > 0.3 or q.sick > 0.3:
+        return f"{p.name if p.sick > 0.3 else q.name} is not feeling well."
+    return city.rng.choice(("The place is busy and noisy.", "It is quiet.", "It looks like rain.", "The sun is out.",
+                            "Someone is cooking nearby.", "There is a smell of fresh bread.", ""))
