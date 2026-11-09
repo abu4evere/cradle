@@ -109,3 +109,8 @@ Read `PLAN.md` (the design, in the creator's own words), then the log at the end
   - **7B** (run 42546418239), 11.8 s per call: the most natural speech (a child shows a butterfly or a leaf; the teacher: 'Want to show it to the class?'), fewer errors; it still mixes up Mom and Dad.
   - **Budget per 6-hour job:** about 3,500 calls (3B) or 1,800 (7B), so a full city childhood is slow.
   - **Direction:** the C0 household first; a free API tier could give better and faster people (the creator's key).
+- 2026-11-08 21:10: C0 plan drafted (docs/C0_plan_draft.md; not frozen, waiting for the creator):
+  - one home, two AI parents, ten things, a newborn neural child, three years;
+  - arms: large, small, growing, blank (no joint attention), learning off, shuffled words;
+  - the test: new sentences, new layouts, no cues.
+  Research notes on first-word learning are in docs/research_word_learning_2026-11-08.md (records and abstracts only).
