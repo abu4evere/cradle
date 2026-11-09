@@ -114,3 +114,8 @@ Read `PLAN.md` (the design, in the creator's own words), then the log at the end
   - arms: large, small, growing, blank (no joint attention), learning off, shuffled words;
   - the test: new sentences, new layouts, no cues.
   Research notes on first-word learning are in docs/research_word_learning_2026-11-08.md (records and abstracts only).
+- 2026-11-08 21:16: council 2 on the C0 draft (GPT, Gemini, DeepSeek; two rounds; docs/council_2_C0_2026-11-08.md):
+  - C0 becomes C0-A, grounded word association, with validity fixes;
+  - new: a reward-only arm G, a 32-dim control H, a counting baseline, and novel-word and repair tests;
+  - then C1 (routine) and C2 (social reference);
+  - the changes are added at the top of docs/C0_plan_draft.md. Still a draft; waiting for the creator.

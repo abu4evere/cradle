@@ -4,6 +4,33 @@
 `C0-frozen`, as in ACL). Based on council 1 (`council_1_2026-11-08.md`): GPT's "C0", DeepSeek's blank-slate arm and
 pre-registration, Gemini's warning that AI parents invent meaning.
 
+## Changes after council 2 (8 November 2026; `council_2_C0_2026-11-08.md`)
+These override the text below where they differ.
+1. **The name: C0-A, "grounded word association".** A working base; no claim about culture from it.
+2. **Pairing, stated honestly:** the scenes are fixed in advance (things in view, places, the parent's act, the frame).
+   Only the parents' responses to the child's actions differ between arms. Results report shared scenes and diverging
+   interaction histories.
+3. **Looks from categories:** each thing's look is drawn around a category centre, so new instances can be made. A
+   **new-instance test** is a separate endpoint.
+4. **Ordinary cue ambiguity in daily life:** parents sometimes look without naming, or name without looking. The
+   proportions are fixed before freezing. A perfect-cue arm stays as a positive control.
+5. **No hidden pointer in arm D:** the held thing's place carries no cue.
+6. **New arms and baselines:**
+   - **G:** reward only (A without the association update; the same sights, sounds and rewards). It also gets one
+     longer exploratory run, so that undertraining can be ruled out.
+   - **H:** a fixed 32-dimension brain, to separate growth from final size.
+   - **A non-neural counting baseline:** word and thing co-occurrence counts.
+7. **New tests:**
+   - **Novel word:** a never-heard word in the name's place; accuracy must fall to chance.
+   - **Repair:** after a correction, is the next attempt better than chance? Pre-registered as C0-A's second reading,
+     "uses correction".
+8. **Growth** happens away from test days.
+9. **The controls** (E and F) must fall within an equivalence bound of chance, not equal it exactly.
+10. **Reporting:** accuracy per word, exposure counts and learning curves.
+11. **The next experiments:** C1, a routine (an unlabelled turn-taking ball game: anticipation, repair, initiation;
+    DeepSeek); then C2, social reference (misleading gaze, "give me that" with a point, an absent object, a clarified
+    request; GPT).
+
 ## The question, simply
 A newborn child (a small neural network, never a language model) lives in one home with two AI parents and ten
 everyday things. The parents talk to it as parents do. **After three years of this life, when a parent says "give me the
