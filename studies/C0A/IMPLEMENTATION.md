@@ -66,3 +66,16 @@ only on a stand-in corpus (in `scratch_test/`, not committed) to confirm that th
 - **Repair with correction:** the child hears the "no" frame with Y and the asking frame with X as one heard input:
   u is the mean over both sentences' words. Y has been removed, so 3 things remain.
 - **Request by word:** this is the request trials grouped by the target's name.
+
+## The sentences (added 10 November 2026, before any child ran)
+- **First corpus job (run 42789280466) failed the minimums:** naming 0, asking 0, "no" 0, "this one" 0, handing 1
+  (praise 52; the kinds without a slot passed). The kept praise frames were near copies of the example. So the model
+  most likely wrote real object names instead of {X}, and the check rightly dropped those lines. The raw replies were
+  not saved, so this cannot be confirmed.
+- **Fixes to `make_corpus.py`:**
+  - a firmer instruction for the slot (a good and a bad example, and "do not copy the example");
+  - the placeholder's written variants ({x}, {{X}}, [X], <X>) are read as {X};
+  - every reply is saved to `raw.json`.
+
+  The checks, the minimums, the split and the model are unchanged.
+- **The 3 extra rounds** are counted within each corpus job. The failed job is recorded here, not hidden.

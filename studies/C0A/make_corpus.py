@@ -48,11 +48,13 @@ def chat(model: str, prompt: str) -> str:
 
 def prompt_for(kind: str) -> str:
     if kind in SLOT_KINDS:
-        rule = ("Write each sentence with the placeholder {X} standing for the thing's name, exactly once. Never write "
-                "the name of a real object, only {X}.")
+        rule = ("IMPORTANT: every sentence must contain the exact characters {X} once, in the place where the thing's "
+                "name would go. {X} is a blank to be filled in later. Never write the name of any object or animal "
+                "(no ball, cup, toy, teddy and so on), only {X}. Vary the wording a lot; do not copy the example. "
+                "Good: \"Oh look, it's a {X}!\" Bad: \"Oh look, it's a ball!\"")
     else:
         rule = "Do not mention any object by name, and do not use the placeholder {X}."
-    return (f"Write 40 different short sentences that {ASK[kind]} {rule} Use plain everyday English, 2 to 14 words, no "
+    return (f"Write 40 different short sentences for this moment: {ASK[kind]}. {rule} Use plain everyday English, 2 to 14 words, no "
             "numbers. Write one sentence per line, with no numbering, no quotes and nothing else.")
 
 
@@ -63,7 +65,9 @@ def tokens(s: str) -> list:
 def clean(line: str) -> str:
     line = line.strip().strip("-*•").strip()
     line = re.sub(r"^\d+[.)]\s*", "", line)
-    return line.strip().strip('"“”').strip()
+    line = line.strip().strip('"“”').strip()
+    # the model's ways of writing the placeholder, read as the placeholder (IMPLEMENTATION.md, "The sentences")
+    return re.sub(r"\{\{\s*[xX]\s*\}\}|\{\s*[xX]\s*\}|\[\s*[xX]\s*\]|<\s*[xX]\s*>", "{X}", line)
 
 
 def valid(kind: str, s: str) -> bool:
@@ -88,7 +92,7 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     frames = {k: [] for k in SLOT_KINDS + OTHER_KINDS}
     seen = {k: set() for k in frames}
-    log = []
+    log, raw = [], []
     for rnd in range(1 + 3):                      # the first round and up to 3 extra rounds (questions.md)
         short = [k for k in frames if len(frames[k]) < MINIMUM[k]]
         if rnd > 0 and not short:
@@ -98,6 +102,7 @@ def main():
             for _ in range(asks):
                 t0 = time.time()
                 text = chat(model, prompt_for(kind))
+                raw.append({"round": rnd, "kind": kind, "text": text})
                 kept = 0
                 for line in text.splitlines():
                     s = clean(line)
@@ -127,6 +132,7 @@ def main():
     corpus = {"model": model, "minimums_met": ok, "names": NAMES, "nonce": NONCE, "split_seed": SPLIT_SEED,
               "frames": split, "vocabulary": vocab, "log": log}
     (out / "corpus.json").write_text(json.dumps(corpus, indent=1), encoding="utf-8")
+    (out / "raw.json").write_text(json.dumps(raw, indent=1), encoding="utf-8")       # every reply as the model wrote it
     print("minimums met:", ok, {k: len(v) for k, v in frames.items()}, "vocabulary", len(vocab))
     sys.exit(0 if ok else 1)
 
