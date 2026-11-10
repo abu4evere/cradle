@@ -1,0 +1,77 @@
+name: c0b-run
+
+# C0-B: every child of every arm at level L1 (studies/C0B/questions.md), on GitHub's machines. Nothing runs on the creator's PC.
+#   1. checks:  checks_c0b.py on the committed corpus; nothing else starts unless All: PASS
+#   2. arm:     one job per arm, 16 children each (seeds 1-16)
+#   3. analyse: every child's file plus the analysis, in one artifact, c0b-results
+# Run: gh workflow run c0b-run.yml -R abu4evere/cradle
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -q "numpy==2.2.6"
+      - run: python studies/C0B/checks_c0b.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c0b-checks
+          path: studies/C0B/checks.log
+
+  arm:
+    needs: checks
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        arm: [A, B, C, H, D, P, G, E, F, K]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -q "numpy==2.2.6"
+      - name: 16 children
+        run: |
+          python -VV; python -c "import numpy; print('numpy', numpy.__version__)"
+          for s in $(seq 1 16); do python studies/C0B/c0b.py one ${{ matrix.arm }} $s out L1; done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c0b-arm-${{ matrix.arm }}
+          path: out/
+
+  analyse:
+    needs: [checks, arm]
+    if: always() && needs.checks.result == 'success'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -q "numpy==2.2.6"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: c0b-arm-*
+          merge-multiple: true
+          path: out/
+      - uses: actions/download-artifact@v4
+        with:
+          name: c0b-checks
+          path: studies/C0B/
+      - run: python studies/C0B/analyse_c0b.py out
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c0b-results
+          path: out/
