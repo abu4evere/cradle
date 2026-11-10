@@ -119,3 +119,9 @@ Read `PLAN.md` (the design, in the creator's own words), then the log at the end
   - new: a reward-only arm G, a 32-dim control H, a counting baseline, and novel-word and repair tests;
   - then C1 (routine) and C2 (social reference);
   - the changes are added at the top of docs/C0_plan_draft.md. Still a draft; waiting for the creator.
+- 2026-11-10 04:23: C0-A build (sleep mode):
+  - frozen plan committed and tagged `C0A-frozen` (the creator's sign-off, 8 November, 21:40);
+  - corpus job `c0a-corpus` launched on the cloud (run 42789280466; qwen2.5:7b);
+  - `studies/C0A/c0a.py` (the simulation), `checks_c0a.py` (the code checks), `IMPLEMENTATION.md` (readings of open points), `analyse_c0a.py` (written before any data) and the workflow `c0a-run.yml` (checks, then 11 arms × 16 children, then the analysis);
+  - on a stand-in corpus (scratch_test/, not committed) every code check passes except the corpus minimums (expected). Arm A learns; E stays at chance.
+  - **Next:** commit corpus.json when the job ends, then run c0a-run on the cloud, then the blind recompute.
