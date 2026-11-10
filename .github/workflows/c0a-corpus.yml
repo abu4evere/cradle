@@ -1,0 +1,33 @@
+name: c0a-corpus
+
+# C0-A: the parents' sentences, generated once by qwen2.5:7b (studies/C0A/questions.md, "The sentences"). The artifact's
+# corpus.json is committed to studies/C0A/ before any C0-A run. Nothing runs on the creator's PC.
+# Run: gh workflow run c0a-corpus.yml -R abu4evere/cradle
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Ollama model name (frozen: qwen2.5:7b)"
+        default: "qwen2.5:7b"
+
+jobs:
+  corpus:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Ollama
+        run: curl -fsSL https://ollama.com/install.sh | sh
+      - name: Start the server and pull the model
+        run: |
+          (ollama serve > ollama.log 2>&1 &)
+          sleep 5
+          ollama pull "${{ inputs.model }}"
+      - name: Generate and check the sentences
+        run: python studies/C0A/make_corpus.py "${{ inputs.model }}" out
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c0a-corpus
+          path: out/
