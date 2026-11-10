@@ -79,3 +79,13 @@ only on a stand-in corpus (in `scratch_test/`, not committed) to confirm that th
 
   The checks, the minimums, the split and the model are unchanged.
 - **The 3 extra rounds** are counted within each corpus job. The failed job is recorded here, not hidden.
+- **Second corpus job (run 42836870786) also failed the minimums:**
+  - only "this one" fell short (36 of 40; the others were met);
+  - its raw replies show the model repeating the one example ("This one, the {X}.") or padding it with unrelated
+    objects;
+  - the kept frames also often missed the moment's meaning: asking frames that were not requests, and praise that
+    named {X} as if it were the child.
+- **Fix:** each moment is now described with what has just happened and 2–4 varied examples. The checks, the minimums,
+  the split and the model are unchanged.
+- **The child is unaffected either way:** it hears a sentence as a bag of words, and only the name carries the thing.
+  The frames' meaning matters for honesty and for later studies.

@@ -22,16 +22,24 @@ MINIMUM = {**{k: 40 for k in SLOT_KINDS}, "confusion": 10, "whatwant": 10, "back
 SPLIT_SEED = 20261108
 
 ASK = {
-    "naming": "a parent shows a thing to their toddler and tells the child its name, like \"Look, a {X}!\"",
-    "asking": "a parent asks their toddler to hand them a thing, like \"Can you give me the {X}?\"",
-    "praise": "a parent praises their toddler for handing over the right thing, like \"Yes, that's the {X}! Well done!\"",
-    "no": "a parent gently tells their toddler that the thing the child handed over is the wrong one, naming that thing, "
-          "like \"No, that's the {X}.\"",
-    "this": "a parent points to the right thing and tells their toddler this is the one they meant, like \"This one, the {X}.\"",
-    "handing": "a parent hands their toddler the thing the child asked for, like \"Here's your {X}!\"",
+    "naming": "a parent shows a thing to their toddler and tells the child what it is called. Examples: \"Look, a {X}!\" "
+              "\"This is a {X}.\" \"Oh, a {X}! Do you see it?\"",
+    "asking": "a parent asks their toddler to give or hand them a thing; every sentence is a request to hand it over. "
+              "Examples: \"Can you give me the {X}?\" \"Pass me the {X}, please.\" \"Bring the {X} to Mommy.\"",
+    "praise": "the toddler has just handed over the right thing, and the parent praises the child, naming the thing. "
+              "Examples: \"Yes, that's the {X}! Well done!\" \"Good job, you found the {X}!\" \"Thank you for the {X}, "
+              "sweetie!\" The {X} is always the thing, never the child.",
+    "no": "the toddler has just handed over the wrong thing, and the parent gently says no and names the thing the child "
+          "handed. Examples: \"No, that's the {X}.\" \"Oh, that one is a {X}.\" \"Hmm, no, this is the {X}.\"",
+    "this": "the toddler picked the wrong thing, so the parent points at the right thing and names it. Examples: \"I meant "
+            "this one, the {X}.\" \"See? Over here, the {X}.\" \"The {X}, this one right here.\" \"Look, I wanted the "
+            "{X}.\"",
+    "handing": "the toddler asked for a thing, and the parent hands it over, naming it. Examples: \"Here's your {X}!\" "
+               "\"Okay, you can have the {X}.\" \"Here you go, the {X}.\"",
     "confusion": "a parent tells their toddler kindly that they did not understand what the child said, like "
-                 "\"Hmm, I don't understand.\"",
-    "whatwant": "a parent asks their toddler what the child wants, like \"What do you want, sweetie?\"",
+                 "\"Hmm, I don't understand.\" or \"What was that, honey?\"",
+    "whatwant": "a parent asks their toddler what the child wants, like \"What do you want, sweetie?\" or \"What is it you "
+                "need?\"",
     "background": "a parent says something everyday at home near their toddler, about the weather, cooking, the day, "
                   "feelings or family, like \"It's sunny today.\"",
 }
@@ -50,11 +58,11 @@ def prompt_for(kind: str) -> str:
     if kind in SLOT_KINDS:
         rule = ("IMPORTANT: every sentence must contain the exact characters {X} once, in the place where the thing's "
                 "name would go. {X} is a blank to be filled in later. Never write the name of any object or animal "
-                "(no ball, cup, toy, teddy and so on), only {X}. Vary the wording a lot; do not copy the example. "
+                "(no ball, cup, toy, teddy and so on), only {X}. Vary the wording a lot; do not copy the examples. "
                 "Good: \"Oh look, it's a {X}!\" Bad: \"Oh look, it's a ball!\"")
     else:
         rule = "Do not mention any object by name, and do not use the placeholder {X}."
-    return (f"Write 40 different short sentences for this moment: {ASK[kind]}. {rule} Use plain everyday English, 2 to 14 words, no "
+    return (f"Write 40 different short sentences for this moment: {ASK[kind]} {rule} Use plain everyday English, 2 to 14 words, no "
             "numbers. Write one sentence per line, with no numbering, no quotes and nothing else.")
 
 
