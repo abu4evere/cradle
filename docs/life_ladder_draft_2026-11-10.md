@@ -30,7 +30,9 @@ humans. Mission is to find out if that child can keep up with society if not fin
 | **C6 adolescence and work** | 12+ | Friends, choices, a first job. | Later. |
 
 ## Open questions for the creator (they decide)
-1. **Who are the other children?**
+1. **Who are the other children? DECIDED (the creator, 10 November 2026): "i think mix fits better".** The AI
+   (language model) people are the adults (parents, teachers, neighbours); a few neural children learn beside ours as
+   true peers. The options were:
    - **AI (language model) children acting their age?** Lively, but they talk like adults unless held back.
    - **More neural children** (siblings, classmates) learning beside it? Fair peers, but slower to run.
    - **A mix?** The assistant leans to a mix: AI adults, plus a few neural children as true peers.
