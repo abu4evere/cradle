@@ -3,3 +3,4 @@ __pycache__/
 out/
 pause.json
 *.ckpt.json
+scratch_test/
