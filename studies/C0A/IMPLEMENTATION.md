@@ -89,3 +89,10 @@ only on a stand-in corpus (in `scratch_test/`, not committed) to confirm that th
   the split and the model are unchanged.
 - **The child is unaffected either way:** it hears a sentence as a bag of words, and only the name carries the thing.
   The frames' meaning matters for honesty and for later studies.
+- **Third corpus job (run 42841768106): minimums met.** Counts: naming 50, asking 66, praise 68, no 45, this 71,
+  handing 71, confusion 36, whatwant 37, background 288; vocabulary 625 words.
+  - Committed as `corpus.json`, with every raw reply in `corpus_raw.json`.
+  - `checks_c0a.py` on it: All: PASS (`checks.log`).
+  - **Known weakness:** a minority of frames still miss the moment's meaning (for example the asking frame "The {X}
+    is in the kitchen."). The frozen checks cover form, not meaning, so this corpus is used as it is, and the weakness
+    is reported with the results.

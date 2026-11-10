@@ -1,0 +1,16 @@
+PASS  corpus: every sentence passes the frozen checks  (0 bad)
+PASS  corpus: minimums met
+PASS  corpus: no nonce word in the vocabulary
+PASS  corpus: 20% of each slot kind kept back, no overlap with daily life
+PASS  seed 1: never-together pairs never in view together in daily life  (0 moments)
+PASS  seed 1: kept-back frames never used in daily life
+PASS  seed 2: never-together pairs never in view together in daily life  (0 moments)
+PASS  seed 2: kept-back frames never used in daily life
+PASS  tests carry no attention cue (no flag in the test code)
+PASS  the scene stream is identical across arms (seed 3: A, F, E, K)
+PASS  E's weights never change
+PASS  the same seed gives the same result twice (A, seed 3)
+PASS  association: the update equals the numerical gradient  (max error 2.1e-10)
+PASS  handing reward: the update equals adv x the numerical gradient of log pi  (max error 8.4e-11)
+PASS  saying reward: the update equals adv x the numerical gradient of log pi  (max error 9.0e-11)
+All: PASS
