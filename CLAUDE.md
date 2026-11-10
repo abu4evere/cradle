@@ -40,6 +40,18 @@ Read `PLAN.md` (the design, in the creator's own words), then the log at the end
    
    Different brains (small, larger, growing with age) test "is it the brain".
 
+## Cradle's mission (the creator, 10 November 2026, after C0-A)
+"from cradle main mission is that child to grow up with society have friends explore its world go school sum like
+that. Just think about ordinary person life and that child agent should pass the same timeline same pathway just like
+humans. Mission is to find out if that child can keep up with society if not find why and try to solve that."
+- **The child lives an ordinary human life course:** a baby at home, a toddler, friends and play, exploring, school,
+  and later work. Its timeline is the NPC children's timeline.
+- **The question at each stage:** does it keep up with the NPC children of its age? If it does not, find why, and try
+  to fix the brain.
+- **The answer goes back to ACL:** "maybe we find our answer from cradle then we will transform that cradle child
+  brain to acl with some edits".
+- C0-A (words, at home) is the first rung, and it passed. But it was too easy to tell brains apart.
+
 ## Status (16:28, 8 November 2026)
 - **Milestone 1 started:** `cradle/world.py` and `cradle/words.py` hold a 2D city of about 55 people (12 founding families) with roles,
   a daily rhythm, school, births, ageing and a small vocabulary. `python run.py 10 1` runs 10 years in about
