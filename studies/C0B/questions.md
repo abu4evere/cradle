@@ -27,9 +27,9 @@ same child and the same parents' sentences in a harder home, tested from the fir
 2. **Look-alikes:**
    - the 30 categories come in 10 families of 3;
    - a family's centre is drawn N(0, 1²) per number, and each member's centre is the family centre plus N(0, 0.35²);
-   - so members of a family look alike (a cup, a mug, a bowl).
-3. **Fewer hearings:** a day has 6 moments, not 20. Act shares are unchanged. So each name is heard about 15 times
-   less often per day than in C0-A.
+   - so members of a family look alike (a cup, a mug, a glass).
+3. **Fewer hearings:** a day has 6 moments, not 20. Act shares are unchanged. So each name is heard about 10 times
+   less often per day than in C0-A (a third of the moments, three times the things).
 4. **In view:** 3 or 4 things (equal chance). The never-together pairs become 30 of the 435.
 5. **Tests early and often:** days 3, 7, 14, 30, 60, 90, 180, 360, 720 and 1,080. Trials and kinds are as in C0-A.
    - **New: a "look-alike" request test**, 60 trials: the 4 things include the target's two family members. Chance
