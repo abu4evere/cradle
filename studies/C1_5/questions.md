@@ -108,3 +108,22 @@ As C1 (same things, families, routines, parents, noise, 720 days, memory reset e
 - Position is enough (P or K): about 35%.
 - Negation learned by Q: about 40%.
 - B at chance among the two named things on order: about 90% (by construction).
+
+## Correction 1 (11 November 2026, before any data; the corpus not yet made)
+Found by smoke-testing the code on a stub corpus of a few hand-written frames (not study data):
+- **The problem:** with requests inside routine steps, and X the routine's next thing, the window memory already
+  answers most requests. So the child never learned the names at all: plain probes stayed at chance (about 0.25) to day
+  720, in every arm. That is exactly the "not informative" stop above.
+- **Why:** a bare word game, with the same child and no routines, needs about 10,000 trials to reach 0.85. A life gave
+  about 2,900 requests.
+- **The change:**
+  - requests now happen in **asking moments**, separate from the routines: 24 a day, each starting from an empty
+    memory, with 4 things in view. X and Y are drawn from the 30 (never a held-out pair), and the kind is drawn equally
+    from the four;
+  - the routine steps are C1's, with no requests;
+  - the parent's answer in a moment is the reward only (it is not heard).
+- **The probes are unchanged.** They now match the moments in life: an empty memory and 4 things in view.
+- **What the stub smoke showed after the change** (one child, seed 2, stub frames): at day 720, B's plain accuracy
+  0.70, and B handed the negated thing as often as the wanted one. So the guard would not fire. Q's numbers are also
+  in the log, but stub frames are not the study's corpus, and nothing is read from them.
+- **The size (24 a day)** was set by the guard (words learned by B), not by any arm difference.
