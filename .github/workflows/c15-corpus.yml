@@ -1,0 +1,35 @@
+name: c15-corpus
+
+# C1.5: the parents' two-thing requests, generated once by qwen2.5:7b (studies/C1_5/questions.md). The artifact's
+# corpus_c15.json is committed to studies/C1_5/ before any C1.5 run. Nothing runs on the creator's PC.
+# Run: gh workflow run c15-corpus.yml -R abu4evere/cradle
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Ollama model name (frozen: qwen2.5:7b)"
+        default: "qwen2.5:7b"
+
+jobs:
+  corpus:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Ollama
+        run: curl -fsSL https://ollama.com/install.sh | sh
+      - name: Start the server and pull the model
+        run: |
+          (ollama serve > ollama.log 2>&1 &)
+          sleep 5
+          ollama pull "${{ inputs.model }}"
+      - name: NumPy (the thing names come from c0b.py)
+        run: pip install numpy
+      - name: Generate and check the sentences
+        run: python studies/C1_5/make_corpus_c15.py "${{ inputs.model }}" out
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c15-corpus
+          path: out/
