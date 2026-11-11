@@ -12,3 +12,15 @@
   - The first tab would not take the text.
   - The second chat (`e2dae0c434f17ada`) ran code, then asked for the CSV to be pasted, and returned a script.
   - **Pending:** to be retried. Until Gemini matches, C1 is not final.
+
+## Gemini, third attempt (11 November 2026, 03:30): matches
+- **How:** a fresh tab (chat `ea5ea238`), with the CSV pasted inline after the prompt (the two earlier attempts could
+  not read the attached file). It ran code.
+- **Every value matches the analysis** within 0.0004 (rounding and a different random draw):
+  - clean anticipation N 0.7669, P 0.8595, W 0.9053, R 0.9106;
+  - R − S +0.1811 [+0.1646, +0.1979];
+  - R − W +0.0052 [−0.0006, +0.0117].
+- **Reading:** "it keeps up".
+
+**Both match. C1 is final:** tag `C1-done`.
+

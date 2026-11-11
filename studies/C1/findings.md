@@ -1,7 +1,7 @@
 # C1 findings: routines. Can the child take its turn in a day nobody labels?
 
-**Status:** the analysis is valid. The blind recompute (`recompute_c1.md`): GPT matches every number and the reading;
-Gemini is pending (two attempts could not read the file). Not final until Gemini matches.
+**Status:** final. The blind recompute (`recompute_c1.md`): GPT and Gemini both match every number and the reading
+(Gemini on its third attempt, with the data pasted inline).
 
 Every number is from `output/results.md` (analyse_c1.py, written before any data) on cloud run 42958035264:
 - 5 arms × 16 children, seeds 1–16, 720 days;
