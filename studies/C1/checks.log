@@ -1,0 +1,9 @@
+PASS  no frame names a routine or uses an order word  (0)
+PASS  the frames C1 uses remain (naming, praise, this)  ({'naming': 50, 'praise': 68, 'this': 71})
+PASS  every child's routines share things (seeds 1-16)  (shared things: [8, 9, 7, 9, 8, 5, 7, 8, 7, 8, 7, 7, 10, 8, 7, 8])
+PASS  N's state depends on nothing before the present step
+PASS  test days are identical whatever the arm
+PASS  prediction gradient through time (R, 8 steps) = finite differences  (max error 1.1e-10; window 8 steps)
+PASS  act gradient (this step) = finite differences  (max error 2.3e-10)
+PASS  the same seed gives the same result twice (P, seed 3)
+All: PASS

@@ -1,0 +1,77 @@
+name: c1-run
+
+# C1: every child of every arm (studies/C1/questions.md), on GitHub's machines. Nothing runs on the creator's PC.
+#   1. checks:  checks_c1.py on the committed corpus; nothing else starts unless All: PASS
+#   2. arm:     one job per arm, 16 children each (seeds 1-16)
+#   3. analyse: every child's file plus the analysis, in one artifact, c1-results
+# Run: gh workflow run c1-run.yml -R abu4evere/cradle
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -q "numpy==2.2.6"
+      - run: python studies/C1/checks_c1.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c1-checks
+          path: studies/C1/checks.log
+
+  arm:
+    needs: checks
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        arm: [N, P, W, R, S]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -q "numpy==2.2.6"
+      - name: 16 children
+        run: |
+          python -VV; python -c "import numpy; print('numpy', numpy.__version__)"
+          for s in $(seq 1 16); do python studies/C1/c1.py one ${{ matrix.arm }} $s out; done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c1-arm-${{ matrix.arm }}
+          path: out/
+
+  analyse:
+    needs: [checks, arm]
+    if: always() && needs.checks.result == 'success'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -q "numpy==2.2.6"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: c1-arm-*
+          merge-multiple: true
+          path: out/
+      - uses: actions/download-artifact@v4
+        with:
+          name: c1-checks
+          path: studies/C1/
+      - run: python studies/C1/analyse_c1.py out
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c1-results
+          path: out/
