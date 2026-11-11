@@ -1,7 +1,7 @@
 # C1.5: word order. Findings (11 November 2026)
 
-**Status:** valid; the frozen reading is **not learned.** The blind recompute is pending: the browser stopped responding
-tonight, so neither GPT nor Gemini has it yet. Until they match, this is not final.
+**Status:** final. The frozen reading is **not learned.** GPT and Gemini's blind recomputes both match
+(`recompute_c15.md`).
 
 - **Run:** c15-run 42982085632. 120 children (5 arms × 24 seeds), checks All: PASS, the same homes in every arm.
 - **Plan:** `questions.md` (C1_5-frozen) with correction 1, made before any data.
@@ -18,7 +18,9 @@ tonight, so neither GPT nor Gemini has it yet. Until they match, this is not fin
   learning rate and no other help, did not learn in 720 days.
   - **Q's failure was not seen in the stub smoke.** There, one Q child reached plain 0.60 on four short hand-written
     frames. The real corpus's sentences are longer and more varied.
-- **P (position added, then the mean) = B.** Averaging washes the positions out.
+- **P (position added, then the mean) = B.** This was a design flaw (GPT's recompute note, checked): the mean of
+  (word + position) is the mean of the words plus a term set by the sentence's length alone, so P could never hear
+  order.
 
 ## The exploratory surprise: K, words in fixed slots, learned negation
 - **K learned negation:** it handed the wanted thing 0.744 [0.735, 0.753] and the negated one 0.194. B can only split
