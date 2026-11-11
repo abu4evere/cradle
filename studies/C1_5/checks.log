@@ -1,0 +1,11 @@
+B hears a twin pair the same: PASS
+Q- carries no order (twins' mean readings over 3,000 shuffles agree): PASS (max gap 0.0031)
+held-out pairs never in a life request (720 days): PASS (seed 1, 87 held)
+probes identical across arms: PASS
+gradients equal finite differences, arm B (through the hearing part): PASS (worst rel. 7.99e-06)
+gradients equal finite differences, arm P (through the hearing part): PASS (worst rel. 5.60e-06)
+gradients equal finite differences, arm K (through the hearing part): PASS (worst rel. 5.13e-06)
+gradients equal finite differences, arm Q (through the hearing part): PASS (worst rel. 1.62e-06)
+gradients equal finite differences, arm Q- (through the hearing part): PASS (worst rel. 7.48e-06)
+the same seed gives the same result twice (arm Q, 20 days): PASS
+All: PASS
