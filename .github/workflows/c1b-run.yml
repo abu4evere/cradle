@@ -2,7 +2,7 @@ name: c1b-run
 
 # C1-B: every child of every arm (studies/C1B/questions.md), on GitHub's machines. Nothing runs on the creator's PC.
 #   1. checks:  checks_c1b.py on the committed corpus; nothing else starts unless All: PASS
-#   2. arm:     one job per arm, 24 younger children each (seeds 1-16)
+#   2. arm:     one job per arm, 24 younger children each (seeds 1-24)
 #   3. analyse: every child's file plus the analysis, in one artifact, c1b-results
 # Run: gh workflow run c1b-run.yml -R abu4evere/cradle
 
