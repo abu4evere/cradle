@@ -10,4 +10,13 @@
   - Yo − Y− +0.1676;
   - day-720 Y − A −0.0123;
   - imitation helps **no**, hearing the feedback helps **no**.
-- **Gemini** (chat `937e07d8`, everything in one attached text file): pending.
+- **Gemini** (3.6 Flash, High), chat `937e07d8`: everything was in one attached text file. Its first try hit an error;
+  on the retry it ran code and **matches every value and both readings**:
+  - early learning A 0.6844, Y− 0.5145, Yo 0.6821, Y 0.6822, Yi 0.6789;
+  - Yi − Y −0.0032 [−0.0071, +0.0008];
+  - Y − Yo +0.0001;
+  - Yo − Y− +0.1676;
+  - Y − A at day 720 −0.0123;
+  - imitation helps no.
+
+**Both match. C1-B is final:** tag `C1B-done`.

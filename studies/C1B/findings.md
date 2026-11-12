@@ -1,6 +1,6 @@
 # C1-B: a sibling. Findings (11 November 2026)
 
-**Status:** valid. The blind recompute by GPT and Gemini is in progress.
+**Status:** final. GPT's and Gemini's blind recomputes both match (`recompute_c1b.md`).
 **Run:** c1b-run 43146882843; 120 younger children (5 arms × 24 seeds); checks All: PASS.
 
 ## The frozen readings: neither social effect helps
