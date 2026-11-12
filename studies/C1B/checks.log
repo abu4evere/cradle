@@ -1,0 +1,9 @@
+arm A's day equals C1's live_day exactly (20 days): PASS
+Y- never sees a sibling step: PASS {'own': 48, 'sib': 38, 'seen': 0, 'imitated': 0}
+Yo, Y, Yi see every sibling step: PASS
+only Yi imitates: PASS
+Yo: after the sibling's turn the younger hears nothing: PASS ''
+Y: after the sibling's turn the younger hears the answer: PASS "Pick the carrot, it's perfect."
+the imitation step equals the act gradient at half the rate, and leaves the baseline: PASS
+the same seed gives the same result twice (Yi, short): PASS
+All: PASS
