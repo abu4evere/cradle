@@ -161,3 +161,8 @@ humans. Mission is to find out if that child can keep up with society if not fin
   - the child does learn whom to trust (own-experience trust Ann 0.99 vs Ben 0.37);
   - exploratory, days 30-60: trusting the right person beats random trust, but not copying everyone.
   Tag C2S-done. Next rung (proposed): imperfect, varying models and costly tries.
+- 2026-11-13 16:26: **C2-E final** (experts and costly practice; c2e-run 43509652372; GPT and Gemini recomputes match):
+  - all four day-30 readings no (primary Ctk - Cyk +0.024 [-0.014, +0.066]);
+  - even copying only the right expert does not beat copying everyone;
+  - but at day 60 (scarce practice) the expert-per-kind child retains more (Ctk - Cyk +0.063, Ctk - Ct +0.076).
+  Tag C2E-done. Next rung (proposed): costly or cumulative methods, where a wrong copy is hard to undo.
