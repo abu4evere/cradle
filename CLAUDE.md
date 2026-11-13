@@ -155,3 +155,9 @@ humans. Mission is to find out if that child can keep up with society if not fin
 - 2026-11-11 22:21: **C1-B results** (c1b-run 43146882843): valid. Imitation helps: no (Yi - Y -0.003); hearing the parent's feedback to the sibling helps: no (Y - Yo +0.000). What mattered was seeing the sibling's steps at all (Yo - Y- +0.168): with half the turns, a child who watches learns as fast as an only child. GPT's recompute matches; Gemini pending.
 - 2026-11-11 22:33: **C1-B final:** Gemini's recompute (retry) matches GPT's and the analysis. Tag C1B-done.
 - 2026-11-12 21:19: **C2 final** (c2-run 43347865943; GPT and Gemini match): watching a method does not teach it (I - E -0.013); copying does (Ic - I +0.090; day 60 0.80 vs 0.26). Retained and improved after demonstrations stop; little transfer to new-looking boxes. Tag C2-done.
+- 2026-11-13 15:51: **C2-S final** (copy who succeeds; c2s-run 43503758272; GPT and Gemini recomputes match):
+  - a consistently wrong model harms blind copying (yes, +0.040);
+  - the outcome filter, trust from seen results (Ct - Cy) and trust from own experience (Cp - Cb, Cp - Cpx; also with every result hidden) do not speed early learning (no);
+  - the child does learn whom to trust (own-experience trust Ann 0.99 vs Ben 0.37);
+  - exploratory, days 30-60: trusting the right person beats random trust, but not copying everyone.
+  Tag C2S-done. Next rung (proposed): imperfect, varying models and costly tries.
