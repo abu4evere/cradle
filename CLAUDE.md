@@ -1,5 +1,7 @@
 # Cradle: read this first (any assistant, any account)
 
+**Handoff (13 November 2026, account switch):** read `D:cl\docs\HANDOFF_2026-11-13.md` first; it covers all three projects and where the brain stands.
+
 **Cradle is the creator's second project** (started 8 November 2026), a sister of ACL (`D:\acl`, which has its own
 `CLAUDE.md` and handoff). Both share one mission: Bob, a mind with autonomy and a cumulative culture.
 - **ACL asks:** can culture appear from nothing?
