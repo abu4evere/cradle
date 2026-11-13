@@ -1,0 +1,17 @@
+each seed's 6 pairs differ: PASS
+Ben's habits differ from the right pairs: PASS
+T never sees a demonstration: PASS
+Ca sees only Ann: PASS
+no demonstrations after day 30: PASS
+hidden demonstrations carry no result bits; the 100 arms are always hidden: PASS
+about half the results hidden in the other arms: PASS (0.517)
+no copy step in T and I: PASS
+Co copies only seen-open demonstrations: PASS
+Cb, Ca, Cb100 copy every demonstration at weight 1: PASS
+Ct's trust is independent of the child (same in Ct, Cy, Cb, Cp): PASS
+Ct's weights follow the demonstrator's trust; Cy's follow the coin's person: PASS
+Cp updates trust only after a try that used the shown pair: PASS
+Cpx credits the coin's person: PASS
+act-head gradients equal finite differences: PASS (worst rel. 1.6e-07)
+the same seed gives the same result twice: PASS
+All: PASS

@@ -1,0 +1,77 @@
+name: c2s-run
+
+# C2-S: every child of every arm (studies/C2S/questions.md), on GitHub's machines. Nothing runs on the creator's PC.
+#   1. checks:  checks_c2s.py; nothing else starts unless All: PASS
+#   2. arm:     one job per arm, 48 children each (seeds 1-48)
+#   3. analyse: every child's file plus the analysis, in one artifact, c2s-results
+# Run: gh workflow run c2s-run.yml -R abu4evere/cradle
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -q "numpy==2.2.6"
+      - run: python studies/C2S/checks_c2s.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c2s-checks
+          path: studies/C2S/checks.log
+
+  arm:
+    needs: checks
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        arm: [T, I, Cb, Co, Ct, Cy, Cp, Cpx, Ca, Cb100, Cp100]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -q "numpy==2.2.6"
+      - name: 48 children
+        run: |
+          python -VV; python -c "import numpy; print('numpy', numpy.__version__)"
+          for s in $(seq 1 48); do python studies/C2S/c2s.py one ${{ matrix.arm }} $s out; done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c2s-arm-${{ matrix.arm }}
+          path: out/
+
+  analyse:
+    needs: [checks, arm]
+    if: always() && needs.checks.result == 'success'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -q "numpy==2.2.6"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: c2s-arm-*
+          merge-multiple: true
+          path: out/
+      - uses: actions/download-artifact@v4
+        with:
+          name: c2s-checks
+          path: studies/C2S/
+      - run: python studies/C2S/analyse_c2s.py out
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c2s-results
+          path: out/
