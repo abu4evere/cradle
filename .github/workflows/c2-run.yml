@@ -1,0 +1,77 @@
+name: c2-run
+
+# C2: every child of every arm (studies/C2/questions.md), on GitHub's machines. Nothing runs on the creator's PC.
+#   1. checks:  checks_c2.py; nothing else starts unless All: PASS
+#   2. arm:     one job per arm, 24 children each (seeds 1-24)
+#   3. analyse: every child's file plus the analysis, in one artifact, c2-results
+# Run: gh workflow run c2-run.yml -R abu4evere/cradle
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -q "numpy==2.2.6"
+      - run: python studies/C2/checks_c2.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c2-checks
+          path: studies/C2/checks.log
+
+  arm:
+    needs: checks
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        arm: [T, E, I, Ic, Iw]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -q "numpy==2.2.6"
+      - name: 24 children
+        run: |
+          python -VV; python -c "import numpy; print('numpy', numpy.__version__)"
+          for s in $(seq 1 24); do python studies/C2/c2.py one ${{ matrix.arm }} $s out; done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c2-arm-${{ matrix.arm }}
+          path: out/
+
+  analyse:
+    needs: [checks, arm]
+    if: always() && needs.checks.result == 'success'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -q "numpy==2.2.6"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: c2-arm-*
+          merge-multiple: true
+          path: out/
+      - uses: actions/download-artifact@v4
+        with:
+          name: c2-checks
+          path: studies/C2/
+      - run: python studies/C2/analyse_c2.py out
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c2-results
+          path: out/

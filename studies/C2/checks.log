@@ -1,0 +1,9 @@
+each seed's 6 pairs differ: PASS
+T never sees a demonstration: PASS
+E sees only the result (no acts): PASS
+I, Ic, Iw see the acts on days 1-30 and nothing after: PASS
+the copy step only in Ic and Iw: PASS {'Ic': 180, 'Iw': 180}
+Iw: a demonstration opens the box exactly when its pair is right: PASS
+act-head gradients equal finite differences: PASS (worst rel. 1.0e-07)
+the same seed gives the same result twice: PASS
+All: PASS
