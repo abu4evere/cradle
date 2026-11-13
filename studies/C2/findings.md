@@ -1,6 +1,6 @@
 # C2: learning how. Findings (12 November 2026)
 
-**Status:** valid. The blind recompute by GPT and Gemini is in progress.
+**Status:** final. GPT's and Gemini's blind recomputes both match (`recompute_c2.md`).
 **Run:** c2-run 43347865943; 120 children (5 arms × 24 seeds); checks All: PASS; not at ceiling (T's early learning
 0.10).
 
