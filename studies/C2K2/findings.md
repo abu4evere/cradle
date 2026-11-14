@@ -22,3 +22,10 @@ seeds were run, and no question arm was seen.
     own difficulty check.
 
 **The assistant's prior that a level would qualify was 85%.** It did not.
+
+## Correction 1 (14 November 2026, appended; from Mind Lab WS)
+- **What WS found:** the same 2-lid boxes, with **one reliable demonstrator** and **every showing copied before the try**, gave the baseline child 0.448 full boxes at day 30 (WS B0), and 0.858 with a full-rate copy.
+- **So the floor here was partly the design,** not only the brain:
+  - half the showings came from a non-expert;
+  - lid 2 was copied only when the child reached it.
+- **The reading above** ("the bottleneck is the brain's speed of learning chained skills") **is too strong.** WS also found that a learned memory of the showing helps most (deferred imitation 0.91 against 0.43).
