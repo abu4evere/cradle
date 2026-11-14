@@ -171,3 +171,8 @@ humans. Mission is to find out if that child can keep up with society if not fin
   - readings 1-3 not readable by the frozen guard;
   - exploratory, partial score: matched for the amount of copying, choosing the right person helps only in the cumulative condition (Ctk - Cyk +0.027, Cok - Cr +0.034).
   Tag C2K-done. Lesson: run a difficulty pilot before freezing cumulative tasks (as C0-B did).
+- 2026-11-13 23:14: **C2-K2 stopped by its frozen difficulty rule** (council 11, frozen C2K2-frozen):
+  - the pilot (seeds 1001-1024, Cb and T only) found no learnable level;
+  - the easiest level (2 lids, 3 tries a day) gave Cb only 0.076 full boxes at day 30, below the 0.15 the rule needs;
+  - no study run. studies/C2K2/findings.md. Tag C2K2-done.
+  The cumulative-skill question waits for a faster-learning brain (Mind Lab) or a longer childhood.
