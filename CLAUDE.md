@@ -166,3 +166,8 @@ humans. Mission is to find out if that child can keep up with society if not fin
   - even copying only the right expert does not beat copying everyone;
   - but at day 60 (scarce practice) the expert-per-kind child retains more (Ctk - Cyk +0.063, Ctk - Ct +0.076).
   Tag C2E-done. Next rung (proposed): costly or cumulative methods, where a wrong copy is hard to undo.
+- 2026-11-13 23:01: **C2-K final** (skills that build on each other; c2k-run 43554099349; GPT and Gemini recomputes match):
+  - valid but at the floor: no child fully opened a 3-lid box by day 30, not even the oracle;
+  - readings 1-3 not readable by the frozen guard;
+  - exploratory, partial score: matched for the amount of copying, choosing the right person helps only in the cumulative condition (Ctk - Cyk +0.027, Cok - Cr +0.034).
+  Tag C2K-done. Lesson: run a difficulty pilot before freezing cumulative tasks (as C0-B did).
