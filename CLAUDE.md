@@ -176,3 +176,7 @@ humans. Mission is to find out if that child can keep up with society if not fin
   - the easiest level (2 lids, 3 tries a day) gave Cb only 0.076 full boxes at day 30, below the 0.15 the rule needs;
   - no study run. studies/C2K2/findings.md. Tag C2K2-done.
   The cumulative-skill question waits for a faster-learning brain (Mind Lab) or a longer childhood.
+- 2026-11-14 00:26: **C2-K3 final** (whom to copy in cumulative skills, with Mind Lab WS's memory brain; council 12; difficulty K2; c2k3-run 43561001972; GPT and Gemini match):
+  - primary YES: Ctk - Cyk (G) +0.069 [+0.035, +0.104], growing to +0.188 at day 60;
+  - but choosing still does not beat copying everyone, and the chain adds nothing (readings 2-4 no).
+  Tag C2K3-done.
