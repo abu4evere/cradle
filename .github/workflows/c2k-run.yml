@@ -1,0 +1,78 @@
+name: c2k-run
+
+# C2-K: every child of every arm and condition (studies/C2K/questions.md), on GitHub's machines. Nothing runs
+# on the creator's PC.
+#   1. checks:  checks_c2k.py; nothing else starts unless All: PASS
+#   2. arm:     one job per arm, 2 conditions x 48 children (seeds 1-48)
+#   3. analyse: every child's file plus the analysis, in one artifact, c2k-results
+# Run: gh workflow run c2k-run.yml -R abu4evere/cradle
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -q "numpy==2.2.6"
+      - run: python studies/C2K/checks_c2k.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c2k-checks
+          path: studies/C2K/checks.log
+
+  arm:
+    needs: checks
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        arm: [T, I, Cb, Ctk, Cyk, Cok, Cr]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -q "numpy==2.2.6"
+      - name: 2 x 48 children
+        run: |
+          python -VV; python -c "import numpy; print('numpy', numpy.__version__)"
+          for p in G U; do for s in $(seq 1 48); do python studies/C2K/c2k.py one ${{ matrix.arm }} $p $s out; done; done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c2k-arm-${{ matrix.arm }}
+          path: out/
+
+  analyse:
+    needs: [checks, arm]
+    if: always() && needs.checks.result == 'success'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -q "numpy==2.2.6"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: c2k-arm-*
+          merge-multiple: true
+          path: out/
+      - uses: actions/download-artifact@v4
+        with:
+          name: c2k-checks
+          path: studies/C2K/
+      - run: python studies/C2K/analyse_c2k.py out
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c2k-results
+          path: out/

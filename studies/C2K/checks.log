@@ -1,0 +1,12 @@
+each box's 3 lid pairs differ: PASS
+habits are never the right pair: PASS
+per-lid rates: expert about 0.85, non-expert about 0.25: PASS (0.850, 0.250)
+demonstrations stop at the first wrong lid: PASS
+G: tries stop at the first wrong lid; lids 2-3 copied only when reached: PASS
+U: every lid is tried: PASS
+no copies in T and I: PASS
+hidden results carry no result bits: PASS
+weights per arm as defined (Ctk replayed independently): PASS
+act-head gradients equal finite differences: PASS (worst rel. 1.5e-07)
+the same seed gives the same result twice: PASS
+All: PASS
