@@ -1,0 +1,14 @@
+each box's lid pairs differ: PASS
+habits are never the right pair: PASS
+per-lid rates: expert about 0.85, non-expert about 0.25: PASS (0.849, 0.254)
+demonstrations stop at the first wrong lid: PASS
+G: a try stops at the first wrong lid: PASS
+U: every lid is tried: PASS
+no copies in T and I: PASS
+showing steps carry who showed it; try steps carry no showing: PASS
+hidden results carry no result bits: PASS
+weights per arm as defined (Ctk replayed independently): PASS
+gradients through time equal finite differences: PASS (worst rel. 5.3e-08)
+the same seed gives the same result twice: PASS
+the level is the frozen rule's choice: PASS (K2)
+All: PASS
