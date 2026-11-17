@@ -1,0 +1,12 @@
+PASS G reproduces C2-K3's G exactly (Cb, Ctk, T; seed 3)
+PASS GP: pain = p x wrong lids (911 wrong lids, pain 455.50, p 0.5)
+PASS G and GS feel no pain
+PASS GS: exactly a broken kind's later tries that day are lost (716 lost)
+PASS tests are C2-K3's: learning off, G rules (no pain, no broken box)
+PASS Ch: every copy weight is 0.5 during showings ([0.5])
+PASS the same seed twice is the same (Ctk, GP)
+All: PASS
+
+real	0m3.172s
+user	0m0.000s
+sys	0m0.000s
