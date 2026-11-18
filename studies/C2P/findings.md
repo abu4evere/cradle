@@ -7,8 +7,9 @@
   pilot seeds.
 - **Run:** locally, 1,008 children (7 arms × 3 conditions × 48). Each child takes about a second.
 - **The analysis:** `results.md`.
-- **The blind recompute** (GPT and Gemini) is **pending.** Its input is `recompute/c2p_children.csv`, with the prompt
-  `recompute/prompt.txt`.
+- **The blind recompute (18 November): confirmed by GPT.** All 21 means are exact, and all six decisions match.
+  Gemini's answer had counting errors and is not counted. See `recompute/recompute_2026-11-18.md`. **These findings are
+  final.**
 
 ## The frozen readings (day-30 full-box success)
 | arm | G | GP | GS |
