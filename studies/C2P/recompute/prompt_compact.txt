@@ -1,0 +1,14 @@
+Blind recompute for a small research study (C2-P). The CSV below has one row per simulated child: arm (T, I, Cb, Ch, Ctk, Cyk, Cok), cond (G, GP, GS), seed (1-48; the same seed number is the same child across arms and conditions, so comparisons are paired by seed), boxes30 (boxes fully opened of 6 at the day-30 test; success_day30 = boxes30 / 6), pain_per_lid (pain per lid tried over days 1-30).
+
+Please compute, using code, and report numbers only:
+1. The mean success_day30 for every arm x cond (21 numbers).
+2. For each paired difference (per seed, then averaged over the 48 seeds), the mean and a 95% bootstrap interval (resample the 48 seeds with replacement, 10,000 draws, percentiles 2.5 and 97.5):
+ a. success_day30: Ctk minus Cb, in GP.
+ b. success_day30: Ctk minus Cb, in GS.
+ c. success_day30: (Ctk minus Cb in GP) minus (Ctk minus Cb in G).
+ d. success_day30: (Ctk minus Cyk in GP) minus (Ctk minus Cyk in G).
+ e. success_day30: Ctk minus Ch, in GP.
+ f. pain_per_lid: Ctk minus Cb, in GP.
+3. For a-e, is the lower bound above 0? For f, is the upper bound below 0?
+
+CSV:
